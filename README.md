@@ -1,4 +1,4 @@
-# IP geolocation API (Spring Boot)
+# IP geolocation API
 
 Spring Boot **4.0** sample that:
 
