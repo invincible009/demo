@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 7020
+
+# Only Nigeria, Kenya, Ghana, and Rwanda may use the app (by IP geolocation).
+# For production behind a reverse proxy, forward the real client IP (X-Forwarded-For).
+regional-access:
+  enabled: true
+  allowed-country-codes:
+    - NG
+    - KE
+    - GH
+    - RW
+  # Localhost / RFC1918 skip geo check (set false when you want strict checks in all environments).
+  allow-private-networks: true
+  permit-all-path-prefixes:
+    - /h2-console
+    - /error

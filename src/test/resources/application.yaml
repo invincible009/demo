@@ -1,0 +1,3 @@
+# Tests should not depend on outbound IP2Location calls for the regional gate.
+regional-access:
+  enabled: false
